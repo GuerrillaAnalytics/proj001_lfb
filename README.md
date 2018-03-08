@@ -29,3 +29,24 @@ At this point, we have already come quite far in terms of data provenance and be
 However, some challenges remain.
 1. Every workproduct needs to clean its own data. This is inefficient and it risks inconsistency in the application of cleaning rules and other business rules.
 2. If new data arrives, references to raw datasets have to be changed in many places in the code.
+
+
+## Clean data `004_clean_data`
+* See the L1 folder in the pipeline.
+  * We are now building the pipeline into a versioned namespace `proj001_lfb_0_0_1`.
+  * a teardown script clears out this namespace at the start of the pipeline build. This makes sure old orphaned datasets are not persisted and accidentally used by workproducts.
+  * the L1 script points at the latest raw data. This is useful when data is broken or gets refreshed and we want to be clear that we are pointing at the latest data.   
+* See the `L2` code folder
+  * The cleaning code gives the dataset a sensible cleaned name used by the rest of the pipeline. This is important because it allows us to decouple the downstream pipeline code from the raw data being processed. Raw data will be refreshed and we want to minimised the downstream code changes this causes.
+* See the second workproduct folder
+  * This new workproduct is now using the pipeline clean dataset in `L2`.
+  * This simplifies the workproduct code.
+  * This makes the code more efficient
+  * There is only one place where agreed cleaning rules are applied - the pipeline.
+
+## Checkpoint
+This is another sensible checkpoint for a team's maturity.
+
+1. Cleaning rules are now consistently applied in one place instead of scattered through workproducts
+2. Potentially large datasets are in a database where they can be accessed by multiple team members concurrently and in a performant way.
+3. If rules change, a new pipeline version can be built into a new pipeline namespace (`proj001_lfb_0_0_1`, `proj001_lfb_0_0_2` etc.). This means that older workproducts do not break. The impact of changes can be measured by diffing datasets between different pipeline versions. 
