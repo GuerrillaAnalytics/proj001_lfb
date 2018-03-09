@@ -49,4 +49,9 @@ This is another sensible checkpoint for a team's maturity.
 
 1. Cleaning rules are now consistently applied in one place instead of scattered through workproducts
 2. Potentially large datasets are in a database where they can be accessed by multiple team members concurrently and in a performant way.
-3. If rules change, a new pipeline version can be built into a new pipeline namespace (`proj001_lfb_0_0_1`, `proj001_lfb_0_0_2` etc.). This means that older workproducts do not break. The impact of changes can be measured by diffing datasets between different pipeline versions. 
+3. If rules change, a new pipeline version can be built into a new pipeline namespace (`proj001_lfb_0_0_1`, `proj001_lfb_0_0_2` etc.). This means that older workproducts do not break. The impact of changes can be measured by diffing datasets between different pipeline versions.
+
+## Model data `005_model_data`
+Now start looking at the entities in the data so they can be pulled into a normalised model. `wp_003_normal_model` explores relationships in the incidents data and draws conclusions on how the data should be modeled.
+
+* open `wp_003_normal_model`. See how the uniqueness of entities and whether they have one-to-many relationships is explored. 
