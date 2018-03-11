@@ -14,6 +14,7 @@ incidentnumber as incidentnumber_cln
 ,propertytype
 ,addressqualifier
 ,case when trim(postcode_full) = '' then null else postcode_full end as postcode_full
+,postcode_district
 ,incgeo_boroughname
 ,upper(incgeo_wardname) as incgeo_wardname
 ,upper(incgeo_wardnamenew) as incgeo_wardnamenew
@@ -47,5 +48,6 @@ ALTER TABLE proj001_lfb_0_0_1.l2_incidents CLUSTER ON dateofcall_ind;
 /*
 select * from proj001_lfb_0_0_1.L2_incidents limit 10;
 select min(dateofcall_cln), max(dateofcall_cln) from proj001_lfb_0_0_1.L2_incidents 
+
 
 */
