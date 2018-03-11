@@ -33,11 +33,13 @@ However, some challenges remain.
 
 ## Clean data `004_clean_data`
 * See the L1 folder in the pipeline.
-  * We are now building the pipeline into a versioned namespace `proj001_lfb_0_0_1`.
+  * We are now building the pipeline into a versioned namespace `proj001_lfb_0_0_1`. This allows us to keep backwards compatibility with older pipelines and make sure that older work products continue to work.
   * a teardown script clears out this namespace at the start of the pipeline build. This makes sure old orphaned datasets are not persisted and accidentally used by workproducts.
   * the L1 script points at the latest raw data. This is useful when data is broken or gets refreshed and we want to be clear that we are pointing at the latest data.   
 * See the `L2` code folder
   * The cleaning code gives the dataset a sensible cleaned name used by the rest of the pipeline. This is important because it allows us to decouple the downstream pipeline code from the raw data being processed. Raw data will be refreshed and we want to minimised the downstream code changes this causes.
+* See the script `build.sh` in the root of the pipeline code folder. This automates running all `.sh` and `.sql` scripts that are found in the pipeline code.
+  * a build script allows you to quickly and easily tear down and rebuild a pipeline. This encourages frequent rebuilds, making you more agile and helping you uncover integration bugs between the various pipeline data steps.
 * See the second workproduct folder
   * This new workproduct is now using the pipeline clean dataset in `L2`.
   * This simplifies the workproduct code.
@@ -49,4 +51,5 @@ This is another sensible checkpoint for a team's maturity.
 
 1. Cleaning rules are now consistently applied in one place instead of scattered through workproducts
 2. Potentially large datasets are in a database where they can be accessed by multiple team members concurrently and in a performant way.
-3. If rules change, a new pipeline version can be built into a new pipeline namespace (`proj001_lfb_0_0_1`, `proj001_lfb_0_0_2` etc.). This means that older workproducts do not break. The impact of changes can be measured by diffing datasets between different pipeline versions. 
+3. If rules change, a new pipeline version can be built into a new pipeline namespace (`proj001_lfb_0_0_1`, `proj001_lfb_0_0_2` etc.). This means that older workproducts do not break. The impact of changes can be measured by diffing datasets between different pipeline versions.
+4. A build script allows the building of the pipeline to be easily automated. 
