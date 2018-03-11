@@ -3,6 +3,7 @@
 create table proj001_lfb_0_0_1.l3_postcodes (
 id			serial primary key
 ,postcode_full		text
+,postcode_district	text
 ,incgeo_boroughname	text
 ,incgeo_wardname	text
 ,incgeo_wardnamenew	text
@@ -10,19 +11,22 @@ id			serial primary key
 
 
 insert into proj001_lfb_0_0_1.l3_postcodes (
-postcode_full		
+postcode_full	
+,postcode_district	
 ,incgeo_boroughname	
 ,incgeo_wardname	
 ,incgeo_wardnamenew	
 )
 select distinct  
-postcode_full		
+postcode_full
+,postcode_district		
 ,incgeo_boroughname	
 ,incgeo_wardname	
 ,incgeo_wardnamenew	
 from proj001_lfb_0_0_1.l2_incidents
 order by 
-postcode_full		
+postcode_full	
+,postcode_district	
 ,incgeo_boroughname	
 ,incgeo_wardname	
 ,incgeo_wardnamenew;
