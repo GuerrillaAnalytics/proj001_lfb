@@ -7,6 +7,7 @@ id			serial primary key
 ,incgeo_boroughname	text
 ,incgeo_wardname	text
 ,incgeo_wardnamenew	text
+,frs			text
 );
 
 
@@ -16,6 +17,7 @@ postcode_full
 ,incgeo_boroughname	
 ,incgeo_wardname	
 ,incgeo_wardnamenew	
+,frs
 )
 select distinct  
 postcode_full
@@ -23,18 +25,20 @@ postcode_full
 ,incgeo_boroughname	
 ,incgeo_wardname	
 ,incgeo_wardnamenew	
+,frs
 from proj001_lfb_0_0_1.l2_incidents
 order by 
 postcode_full	
 ,postcode_district	
 ,incgeo_boroughname	
 ,incgeo_wardname	
-,incgeo_wardnamenew;
-
-
+,incgeo_wardnamenew
+,frs
+;
 /*
-select * from proj001_lfb_0_0_1.l3_postcodes 
+select * from proj001_lfb_0_0_1.l3_postcodes limit 50
 
+select * from proj001_lfb_0_0_1.l2_incidents limit 10
 */
 
 
