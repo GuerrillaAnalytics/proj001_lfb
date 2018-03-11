@@ -1,9 +1,9 @@
 ﻿
 /*Union together all incident files and clean with
 one set of rules*/
-drop table if exists proj001_lfb_0_0_1.L2_incidents;
+drop table if exists proj001_lfb_0_1_0.L2_incidents;
 
-create table proj001_lfb_0_0_1.L2_incidents as
+create table proj001_lfb_0_1_0.L2_incidents as
 select 
 incidentnumber as incidentnumber_cln
 ,to_timestamp(dateofcall || ' ' || timeofcall , 'DD-Mon-YY HH24:MI:SS') as dateofcall_cln
@@ -30,24 +30,24 @@ incidentnumber as incidentnumber_cln
 	as numpumpsattending
 from 
 (
-	select * from proj001_lfb_0_0_1.L1_LFB_Incident_data_from_January_2009_to_December_2012
+	select * from proj001_lfb_0_1_0.L1_LFB_Incident_data_from_January_2009_to_December_2012
 	
 )_;
 
 /*index the clean table*/
-DROP INDEX if exists proj001_lfb_0_0_1.dateofcall_ind;
+DROP INDEX if exists proj001_lfb_0_1_0.dateofcall_ind;
 
 CREATE INDEX dateofcall_ind
-  ON proj001_lfb_0_0_1.l2_incidents
+  ON proj001_lfb_0_1_0.l2_incidents
   USING btree
   (dateofcall_cln);
-ALTER TABLE proj001_lfb_0_0_1.l2_incidents CLUSTER ON dateofcall_ind;
+ALTER TABLE proj001_lfb_0_1_0.l2_incidents CLUSTER ON dateofcall_ind;
 
 
   
 /*
-select * from proj001_lfb_0_0_1.L2_incidents limit 10;
-select min(dateofcall_cln), max(dateofcall_cln) from proj001_lfb_0_0_1.L2_incidents 
+select * from proj001_lfb_0_1_0.L2_incidents limit 10;
+select min(dateofcall_cln), max(dateofcall_cln) from proj001_lfb_0_1_0.L2_incidents 
 
 
 */
