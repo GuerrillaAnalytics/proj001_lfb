@@ -59,3 +59,4 @@ Now start examining the entities in the data so they can be pulled into a normal
 
 * open `wp_003_normal_model`. See how the uniqueness of entities and whether they have one-to-many relationships is explored.
 * note that an issue with `postcode_full` and `postcode_district` led us to decide that `postcode_district` is needed in L3. L2 code was therefore modified to pull through this field when it had previously been dropped.
+* the pipeline semantic version number has been increased from `proj001_lfb_0_0_1` to `proj001_lfb_0_1_0` to reflect the backwards compatible changes of the new L3 datasets created and the additional column in L2 incidents. 
