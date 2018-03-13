@@ -62,3 +62,11 @@ Now start examining the entities in the data so they can be pulled into a normal
   * the pipeline semantic version number has been increased from `proj001_lfb_0_0_1` to `proj001_lfb_0_1_0` to reflect the backwards compatible changes of the new L3 datasets created and the additional column in L2 incidents.
   * Execute the pipeline to build all your tables into a new namespace `proj001_lfb_0_1_0`.
   * note that an issue with `postcode_full` and `postcode_district` led us to decide that `postcode_district` is needed in L3. L2 code was therefore modified to pull through this field when it had previously been dropped.
+
+
+## Doing ad-hoc analytics `006_analytics`
+Here we do some analytics by creating an analytics dataset from our normal model in `L3`.
+
+* open `wp_003_normal_model` and read through the code.
+  * two datasets are extracted from `L3` and joined together in pandas.
+  * We do not put this analytics dataset into the pipeline until we know it is worth the investment. That is, until we know the same analytics dataset will be required multiple times in other workproducts.
