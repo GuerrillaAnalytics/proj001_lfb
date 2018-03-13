@@ -70,3 +70,8 @@ Here we do some analytics by creating an analytics dataset from our normal model
 * open `wp_003_normal_model` and read through the code.
   * two datasets are extracted from `L3` and joined together in pandas.
   * We do not put this analytics dataset into the pipeline until we know it is worth the investment. That is, until we know the same analytics dataset will be required multiple times in other workproducts.
+
+## Data refresh `007_data_refresh`
+We have been informed that new data on incidents has arrived. The extraction of this data was delayed until now. We need to incorporate this data into our pipeline and refresh some of the analytics we have done so our customers have the latest numbers.
+
+* the pipeline version has been increased to `proj001_lfb_1_0_0`. This major version change is because we are including new data that will potentially completely change work product conclusions.

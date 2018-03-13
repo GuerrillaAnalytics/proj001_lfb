@@ -1,6 +1,6 @@
-﻿drop table if exists proj001_lfb_0_1_0.l3_postcodes cascade;
+﻿drop table if exists proj001_lfb_1_0_0.l3_postcodes cascade;
 
-create table proj001_lfb_0_1_0.l3_postcodes (
+create table proj001_lfb_1_0_0.l3_postcodes (
 id			serial primary key
 ,postcode_full		text
 ,postcode_district	text
@@ -11,7 +11,7 @@ id			serial primary key
 );
 
 
-insert into proj001_lfb_0_1_0.l3_postcodes (
+insert into proj001_lfb_1_0_0.l3_postcodes (
 postcode_full	
 ,postcode_district	
 ,incgeo_boroughname	
@@ -26,7 +26,7 @@ postcode_full
 ,incgeo_wardname	
 ,incgeo_wardnamenew	
 ,frs
-from proj001_lfb_0_1_0.l2_incidents
+from proj001_lfb_1_0_0.l2_incidents
 order by 
 postcode_full	
 ,postcode_district	
@@ -36,9 +36,9 @@ postcode_full
 ,frs
 ;
 /*
-select * from proj001_lfb_0_1_0.l3_postcodes limit 50
+select * from proj001_lfb_1_0_0.l3_postcodes limit 50
 
-select * from proj001_lfb_0_1_0.l2_incidents limit 10
+select * from proj001_lfb_1_0_0.l2_incidents limit 10
 */
 
 
