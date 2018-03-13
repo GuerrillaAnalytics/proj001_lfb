@@ -31,7 +31,11 @@ incidentnumber as incidentnumber_cln
 from 
 (
 	select * from proj001_lfb_1_0_0.L1_LFB_Incident_data_from_January_2009_to_December_2012
-	
+	union
+	select * from proj001_lfb_1_0_0.L1_LFB_Incident_data_from_January_2013_to_December_2016
+	union
+	select * from proj001_lfb_1_0_0.L1_LFB_Incident_data_from_January_2017
+
 )_;
 
 /*index the clean table*/
