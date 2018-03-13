@@ -67,7 +67,7 @@ Now start examining the entities in the data so they can be pulled into a normal
 ## Doing ad-hoc analytics `006_analytics`
 Here we do some analytics by creating an analytics dataset from our normal model in `L3`.
 
-* open `wp_003_normal_model` and read through the code.
+* open `wp_004_event_analytics` and read through the code.
   * two datasets are extracted from `L3` and joined together in pandas.
   * We do not put this analytics dataset into the pipeline until we know it is worth the investment. That is, until we know the same analytics dataset will be required multiple times in other workproducts.
 
@@ -75,3 +75,5 @@ Here we do some analytics by creating an analytics dataset from our normal model
 We have been informed that new data on incidents has arrived. The extraction of this data was delayed until now. We need to incorporate this data into our pipeline and refresh some of the analytics we have done so our customers have the latest numbers.
 
 * the pipeline version has been increased to `proj001_lfb_1_0_0`. This major version change is because we are including new data that will potentially completely change work product conclusions.
+* note that pipeline code changes only occured in `L0` through to `L2`. This is by design. Because datasets get mapped into a general name from `L2` onwards, further downstream pipeline code is not broken by new data arriving.
+* a second version of the work product `wp_004_event_analytics` has been created. We create a second version because we would like to quantify any changes in the analytics due to the new data that was added to the pipeline. 
