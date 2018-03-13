@@ -57,6 +57,8 @@ This is another sensible checkpoint for a team's maturity.
 ## Create a data model `005_model_data`
 Now start examining the entities in the data so they can be pulled into a normalised data model at L3. `wp_003_normal_model` explores relationships in the incidents data and draws conclusions on how the data should be modeled.
 
-* open `wp_003_normal_model`. See how the uniqueness of entities and whether they have one-to-many relationships is explored.
-* note that an issue with `postcode_full` and `postcode_district` led us to decide that `postcode_district` is needed in L3. L2 code was therefore modified to pull through this field when it had previously been dropped.
-* the pipeline semantic version number has been increased from `proj001_lfb_0_0_1` to `proj001_lfb_0_1_0` to reflect the backwards compatible changes of the new L3 datasets created and the additional column in L2 incidents. 
+* open `wp_003_normal_model`. See how we explore the uniqueness of entities and whether they have one-to-many relationships by testing various joins.
+* Examine the `L3` pipeline code where the normalised tables are created.
+  * the pipeline semantic version number has been increased from `proj001_lfb_0_0_1` to `proj001_lfb_0_1_0` to reflect the backwards compatible changes of the new L3 datasets created and the additional column in L2 incidents.
+  * Execute the pipeline to build all your tables into a new namespace `proj001_lfb_0_1_0`.
+  * note that an issue with `postcode_full` and `postcode_district` led us to decide that `postcode_district` is needed in L3. L2 code was therefore modified to pull through this field when it had previously been dropped.
