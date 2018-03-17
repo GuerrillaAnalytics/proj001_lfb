@@ -25,8 +25,14 @@ do
     # if the file is sql, then use psql tool
     if [ "${fileext}" = "sql" ]
     then
-        psql -h $HOST -d proj001_lfb -U postgres -w -q -f "$filename"
-    
+        psql -h $HOST -d proj001_lfb -U postgres -w -q -v "ON_ERROR_STOP=" -f "$filename"
+        if [ $? -eq 0 ]
+        then
+            echo "Executed file successfully: $?"
+        else
+            echo "Could not execute SQL: $?"
+            exit 1
+        fi
     # if the file is a shell script then use bash
     elif [ "${fileext}" = "sh" ]
     then
