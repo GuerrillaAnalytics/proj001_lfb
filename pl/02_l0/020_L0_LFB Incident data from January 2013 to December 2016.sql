@@ -1,8 +1,8 @@
 ﻿create schema if not exists inputs;
 
-DROP TABLE IF EXISTS inputs.inp_002_02_LFB_Incident_data_from_January_2009_to_December_2012 cascade;
+DROP TABLE IF EXISTS inputs.inp_002_02_LFB_Incident_data_from_January_2013_to_December_2016 cascade;
 
-CREATE TABLE inputs.inp_002_02_LFB_Incident_data_from_January_2009_to_December_2012 (
+CREATE TABLE inputs.inp_002_02_LFB_Incident_data_from_January_2013_to_December_2016 (
 IncidentNumber				text
 ,DateOfCall				text
 ,CalYear				text
@@ -37,6 +37,6 @@ IncidentNumber				text
 );
 
 /*
-select * from inputs.inp_002_02_LFB_Incident_data_from_January_2009_to_December_2012 limit 10
+select * from inputs.inp_002_02_LFB_Incident_data_from_January_2013_to_December_2016 limit 10
 
 */
