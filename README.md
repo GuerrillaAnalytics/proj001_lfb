@@ -67,6 +67,8 @@ Now start examining the entities in the data so they can be pulled into a normal
 ## Doing ad-hoc analytics `006_analytics`
 Here we do some analytics by creating an analytics dataset from our normal model in `L3`.
 
-* open `wp_003_normal_model` and read through the code.
-  * two datasets are extracted from `L3` and joined together in pandas.
+* open `wp_004_event_analytics` and read through the code.
+  * two datasets (events and postcodes) are read from `L3` and joined together in pandas to create an analytics dataset in memory.
   * We do not put this analytics dataset into the pipeline until we know it is worth the investment. That is, until we know the same analytics dataset will be required multiple times in other workproducts.
+  * The analytics dataset is used to create some basic rankings and a visualization of the city boroughs that most often had fires that needed to be tended by more than one station.
+  * At the end of the workproduct, the analytics dataset is saved into a workproduct namespace in the database. This is generally good practice. If you wish to inspect workproduct results, you do not have to re-run the entire notebook to re-generate the result in memory. As we will see later, if you need to explain how a result has changed, storing workproduct outputs in a way they can be queried is invaluable.  
