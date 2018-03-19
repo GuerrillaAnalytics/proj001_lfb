@@ -76,4 +76,8 @@ We have been informed that new data on incidents has arrived. The extraction of 
 
 * the pipeline version has been increased to `proj001_lfb_1_0_0`. This major version change is because we are including new data that will potentially completely change work product conclusions.
 * note that pipeline code changes only occured in `L0` through to `L2`. This is by design. Because datasets get mapped into a general name from `L2` onwards, further downstream pipeline code is not broken by new data arriving.
-* a second version of the work product `wp_004_event_analytics` has been created. We create a second version because we would like to quantify any changes in the analytics due to the new data that was added to the pipeline. 
+* a second version of the work product `wp_004_event_analytics` has been created.
+  * We create a second version because we would like to quantify any changes in the analytics due to the new data that was added to the pipeline.
+  * This second version points at the new pipeline version `proj001_lfb_1_0_0`. No other code in the workproduct needs to change.
+  * The results from this new version of the workproduct are saved into a new workproduct namespace `wp_004_event_analytics_02` so the previous version is not overwritten.
+  * This allows us to do an analysis on how the new data may have changed the borough rankings. 
