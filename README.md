@@ -1,5 +1,8 @@
 # proj001_lfb
-Example training project for Guerrilla Analytics ways of working
+Example training project for Guerrilla Analytics ways of working.
+
+## Getting started
+Please refer to the [project wiki](https://github.com/GuerrillaAnalytics/proj001_lfb/wiki) to install and configure the necessary software to complete this training. 
 
 ## Import first data file `002_import_data`
 * see the `setup` folder
@@ -80,4 +83,4 @@ We have been informed that new data on incidents has arrived. The extraction of 
   * We create a second version because we would like to quantify any changes in the analytics due to the new data that was added to the pipeline.
   * This second version points at the new pipeline version `proj001_lfb_1_0_0`. No other code in the workproduct needs to change.
   * The results from this new version of the workproduct are saved into a new workproduct namespace `wp_004_event_analytics_02` so the previous version is not overwritten.
-  * This allows us to do an analysis on how the new data may have changed the borough rankings. 
+  * This allows us to do an analysis on how the new data may have changed the borough rankings.
