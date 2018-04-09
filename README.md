@@ -80,4 +80,18 @@ We have been informed that new data on incidents has arrived. The extraction of 
   * We create a second version because we would like to quantify any changes in the analytics due to the new data that was added to the pipeline.
   * This second version points at the new pipeline version `proj001_lfb_1_0_0`. No other code in the workproduct needs to change.
   * The results from this new version of the workproduct are saved into a new workproduct namespace `wp_004_event_analytics_02` so the previous version is not overwritten.
-  * This allows us to do an analysis on how the new data may have changed the borough rankings. 
+  * This allows us to do an analysis on how the new data may have changed the borough rankings.
+
+## Building a model `008_false_alarm_analysis`
+We would now like to build a simple predictive model to determine if a particular call-out is a malicious false alarm.
+Since this is our first time figuring out this predictive model, we start a new work product `wp_005_false_alarm_analysis`.
+
+* open the notebook in `wp/wp_005_false_alarm_analysis`.
+* make sure the project's Python environment is enabled and step through the code, noting the following:
+  * there is a mix of exploratory 'feature engineering' and model evaluation.
+  * because formal feature datasets do not yet exist in the pipeline, a lot of this final data preparation is done in Python in the workbook. If a good model is found then you could consider whether feature tables should be built into the pipeline.
+  * the workproduct is complex and is doing a lot of work preparing data for the final algorithms. This can be improved by moving feature datasets out of the workproduct and into the pipeline now that we know the feature datasets will be of value.
+
+## Checkpoint
+At this point, we have a data pipeline of useful datasets. The pipeline datasets were used heavily in creating a predictive model.  
+It now makes sense to go ahead and start separating modelling from data preparation instead of having both bundled together in complex workproducts.   
